@@ -1,12 +1,11 @@
 
-  
   var app = new Vue({
     el: "#app",
     data: {
       queue: []
     },
     created () {
-      this.getData()
+      this.getData();
     },
     methods: {
       /**
@@ -21,6 +20,11 @@
           })
         }
         this.queue = this.queue.concat(list)
+      },
+      async getUsers(){
+        const res = await fetch("localhost:8081/getUsers");
+        const data = await res.json();
+        console.log(data);
       },
       /**
        * 点击按钮所绑定的方法，此方法为调用vue-tinder组件内方法的示例，仅供参考

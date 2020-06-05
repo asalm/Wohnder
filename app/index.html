@@ -21,8 +21,8 @@ body { background: #20262E;overflow: hidden; }
   margin: auto;
   width: calc(100% - 20px);
   height: calc(100% - 23px - 18%);
-  min-width: 300px;
-  max-width: 355px;
+  min-width: 50%;
+  max-width: 55%;
 }
 
 /* 卡片内的3种状态指示器位置，透明度会由组件自动调整 */
@@ -89,7 +89,7 @@ body { background: #20262E;overflow: hidden; }
     <img class="super-pointer" slot="super" src="https://johnnydan.oss-cn-beijing.aliyuncs.com/vue-tinder/super-txt.png">
   </tinder>
   <div class="btns">
-    <img src="https://johnnydan.oss-cn-beijing.aliyuncs.com/vue-tinder/nope.png" @click="decide('nope')">
+    <img src="https://johnnydan.oss-cn-beijing.aliyuncs.com/vue-tinder/nope.png" @click="getUsers()">
     <img src="https://johnnydan.oss-cn-beijing.aliyuncs.com/vue-tinder/super-like.png" @click="decide('super')">
     <img src="https://johnnydan.oss-cn-beijing.aliyuncs.com/vue-tinder/like.png" @click="decide('like')">
   </div>
