@@ -1,101 +1,41 @@
-<head>
-  <style>
-    /* 此样式可能仅适用本demo，仅供参考，可根据具体设计稿或喜好自定义 */
-html,body{ height: 100%; }
-
-body { background: #20262E;overflow: hidden; }
-#app{
-  overflow-x:hidden;
-}
-
-/* 直接script引用建议增加，不然会引发闪烁，单文件组件不需要 */
-[v-cloak] { display: none; }
-
-/* 注意！组件的宽高必须设置，不然出不来！！！ */
-#app .vue-tinder {
-  position: absolute;
-  z-index: 1;
-  left: 0;
-  right: 0;
-  top: 23px;
-  margin: auto;
-  width: calc(100% - 20px);
-  height: calc(100% - 23px - 18%);
-  min-width: 50%;
-  max-width: 55%;
-}
-
-/* 卡片内的3种状态指示器位置，透明度会由组件自动调整 */
-.nope-pointer { right: 10px; }
-.like-pointer { left: 10px; }
-.nope-pointer,
-.like-pointer {
-  position: absolute;
-  z-index: 1;
-  top: 20px;
-  width: 64px;
-  height: 64px;
-}
-.super-pointer {
-  position: absolute;
-  z-index: 1;
-  bottom: 80px;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 112px;
-  height: 78px;
-}
-
-/* slot内图片样式 */
-.pic {
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-}
-
-/* 按钮样式 */
-.btns {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  height: 18%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 300px;
-  max-width: 355px;
-}
-.btns img{ width: 80px; }
-
-  </style>
-</head>
-<body>
-<div id="app" v-cloak>
-  <tinder
-    ref="tinder"
-    :queue.sync="queue"
-    @submit="submit">
-    <template slot-scope="{data}">
-      <div
-        class="pic"
-        :style="`background-image:url(https://picsum.photos/710/1152/?random=${data.key})`">
-      </div>
-    </template>
-    <img class="like-pointer" slot="like" src="https://johnnydan.oss-cn-beijing.aliyuncs.com/vue-tinder/like-txt.png">
-    <img class="nope-pointer" slot="nope" src="https://johnnydan.oss-cn-beijing.aliyuncs.com/vue-tinder/nope-txt.png">
-    <img class="super-pointer" slot="super" src="https://johnnydan.oss-cn-beijing.aliyuncs.com/vue-tinder/super-txt.png">
-  </tinder>
-  <div class="btns">
-    <img src="https://johnnydan.oss-cn-beijing.aliyuncs.com/vue-tinder/nope.png" @click="getUsers()">
-    <img src="https://johnnydan.oss-cn-beijing.aliyuncs.com/vue-tinder/super-like.png" @click="decide('super')">
-    <img src="https://johnnydan.oss-cn-beijing.aliyuncs.com/vue-tinder/like.png" @click="decide('like')">
-  </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://unpkg.com/vue-tinder"></script>
-<script src="app.js"></script>
-</body>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="tndr.css"/>
+    <link rel="stylesheet" type="text/css" href="wohnder.css"/>
+    <script src="tndr.js"></script>
+  </head>
+  <body>
+  <section class="section">
+    <div class="container max-height">
+        <div class="columns">
+            <!-- NAVIGATION -->
+            <div class="column">
+              <div class="navigation">
+                <h1>Wohnder</h1>
+                <ol>
+                  <li>Suchen</li>
+                  <li>Nachrichten</li>
+                  <li>Einstellungen</li>
+                </ol>
+              </div>
+            </div>
+            <!-- CONTENT -->
+            <div class="column is-four-fifths">
+              <div id="tinder">
+                <div class="buddy" style="display: block;"><div class="avatar"  style="display: block; background-image: url(https://1.bp.blogspot.com/_qEbjiFbQWGM/TCBVlN3mkYI/AAAAAAAADCM/7CjYqUHwbgY/s1600/workshop_modell_0126.jpg)"></div></div>
+                <div class="buddy"><div class="avatar" style="display: block; background-image: url(http://static.stylemagazin.hu/medias/29280/Nem-ehezik-a-Women-of-the-Year-legjobb-modell-dijara-eselyes-szepseg_32fc7c86954a8847610499a0fc7261e2.jpg)"></div></div>  
+                <div class="buddy"><div class="avatar" style="display: block; background-image: url(http://w1nd.cc/promo/347.jpg)"></div></div>  
+                <div class="buddy"><div class="avatar" style="display: block; background-image: url(http://ell.h-cdn.co/assets/cm/15/01/54a769be3112d_-_elle-rata-insta-1-24375723.png)"></div></div>  
+                <div class="buddy"><div class="avatar" style="display: block; background-image: url(http://hircsarda.hu/wp-content/uploads/2016/03/orban1.jpeg)"></div></div>  
+              </div>
+    </div>
+  </section>
+  </body>
+</html>

@@ -131,6 +131,7 @@ res.send('wohnung added');
  * STATIC FILES
  */
 app.use('/', express.static('app'));
+app.use(express.static('public'));
 
 //Default every except api to ->
 app.get('*', function(req,res){
