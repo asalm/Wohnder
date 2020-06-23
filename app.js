@@ -77,8 +77,8 @@ app.get('/getUsers', (req,res) =>{
 app.get('/getWohnung', (req,res) =>{
     db.query("SELECT * FROM web234_db2.wohnung", (err,result) => {
         res.send(result);
-    })
-})
+    });
+});
 app.get('/addUser', (async function(req,res){
     for(var i = 0; i < 30; i++){
         var duude = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
@@ -99,33 +99,46 @@ app.get('/addUser', (async function(req,res){
     }
     res.send('users added');
 }));
+//id . match_date. user_id, wohnung_id
+app.post('/addMatch', (req,res) => {
+    var mtch = req.body;
+    console.log(mtch);
+    var data = {
+        match_date: mtch.date,
+        users_id: mtch.user_id,
+        wohnung_id: mtch.wohnung_id
+    }
+    let sql = 'INSERT INTO web234_db2.matches SET ?';
+    db.query(sql,data, (err,result) => {
+        if (err) throw err;
+        console.log(result);
+    });
 
-app.get('/addWohnung', (req, res) => {
-    for(var i = 0; i < 32; i++){
-        var duude = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
-        
+    console.log("match added!");
+    res.send("Match added");
+});
+app.post('/addWohnung', (req, res) => {
+    var flat = req.body;
+    console.log(flat);
+
         let data = {
-            adresse: "Strasse"+duude,
-            available: "2020-07-07",
-            description: "Hier steht was",
-            flatsize: "77",
-            mates:"12",
-            rent: "777",
-            roomsize: "3",
-            title: "Wohnung"+duude,
-            users_id: Math.abs(i+1)
+            adresse: flat.adresse,
+            available: flat.date,
+            description: flat.description,
+            flatsize: flat.flatsize,
+            mates:flat.mates,
+            rent: flat.rent,
+            roomsize: flat.roomsize,
+            title: flat.title,
+            users_id: flat.userid
         }
         let sql = 'INSERT INTO web234_db2.wohnung SET ?';
         db.query(sql,data, (err,result) => {
-        if (err) throw err;
-        console.log(result);
+            if (err) throw err;
+            console.log(result);
+        });
+        res.send('wohnung added');
 });
-res.send('wohnung added');
-
-}
-
-
-})
 
 /**
  * STATIC FILES
