@@ -1,3 +1,7 @@
+body{
+    font-family: 'Quicksand', sans-serif;
+}
+
 .max-height{
     height:calc(820px);
   }
@@ -18,6 +22,16 @@
     padding:0.2em 0.0em;
     box-shadow: 0px 0px 10px 5px rgba(12,12,12,0.2);
   }
+  .content{
+    text-align:left;
+    border-radius:6px;
+    border: 1px solid rgba(150,150,150,0.7);
+    background-color:rgb(244,244,244);
+    height:820px;
+    margin:0em 1em;
+    padding: 0.2em 1em;
+    box-shadow: 0px 0px 10px 5px rgba(12,12,12,0.2);
+  }
   .navigation h1{
     margin-bottom:2em;
     font-weight:800;
@@ -25,7 +39,15 @@
     text-align:center;
     text-decoration:underline;
     text-decoration-color:aqua;
-
+  }
+  .content h1{
+    margin-top:0.2em;
+    margin-bottom:2em;
+    font-weight:800;
+    font-size:2.4em;
+    text-align:left;
+    text-decoration:underline;
+    text-decoration-color:aqua;
   }
   .navigation li{
     list-style-type:none;
@@ -33,12 +55,53 @@
     color:aqua;
     font-size:28px;
     text-decoration:none;
-        text-transform:uppercase;
+    text-transform:uppercase;
     border-bottom:1px solid rgba(150,150,150,0.7);
+    transition: all 0.2s ease-in-out;
   }
   .navigation li:hover{
     color:rgb(27,27,27);;
     background-color:aqua;
     box-shadow:0px 0px 12px 7px rgba(12,12,12,0.2);
-    
   }
+  .navigation li.active{
+    color:rgb(27,27,27);
+    padding-left:0.8em;
+    text-decoration:underline;
+    text-decoration-color:rgb(27,27,27);
+    background-color:aqua;
+    box-shadow:0px 0px 12px 7px rgba(12,12,12,0.2);
+  }
+  .navigation .logout{
+    padding:0;
+    margin:auto;
+    align-self:flex-end;
+    transform:translateY(30em);
+    width:100%;
+    color:rgb(244,244,244);
+    text-align:center;
+  }
+  .navigation .logout p{
+    display:block;
+  }
+
+  .badge-notification {
+  color: white;
+  position: relative;
+  cursor: pointer;
+}
+
+.badge-number {
+  position: absolute;
+  background-color: #ff3466;
+  width:28px;
+  height:28px;
+  font-size: .7rem;
+  padding: .15rem .37rem;
+  border-radius: 5px;
+  font-family: sans-serif;
+  transform:translateY(-0.5em);
+  bottom: 0;
+  right: -15px;
+  border: 1px solid rgba(0,0,0, .25)
+}
