@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="wohnder.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet"> 
     <script src="tndr.js"></script>
+    <script src="login.js"></script>
   </head>
   <body>
   <section class="section">
@@ -21,137 +22,147 @@
               <div class="navigation">
                 <h1>Wohnder</h1>
                 <ol>
-                  <li class="active" id="search">Suchen</li>
-                  <li id="msg">Nachrichten<div class="badge-notification">
-                    <span class="badge-number">5</span>
-                  </div></li>
-                  
-                  <li id="flat">Wohnungen <div class="badge-notification">
-                    <span class="badge-number">1</span>
-                  </div></li>
-                  <li id="settings">Einstellungen</li>
+                  <li class="active" id="login">Anmelden</li>
+                  <li id="register">Registrieren
+                 </li>
                 </ol>
-                <div class="logout">
-                  <p>Abmelden</p>
-                </div>
               </div>
-
             </div>
-            <!-- CONTENT -->
+
             <div class="column is-four-fifths">
-              <div class="content">
-
-                <!-- Search -->
-                <div class="search" id="content_search">
-                  <h1>Wohnung suchen</h1>
-                  <div id="tinder">
+                <div class="content">
+  
+                  <!-- login -->
+                  <div class="search" id="content_login">
+                    <h1>Anmelden</h1>
+                    <form method="POST" name="login" action="https://bulmastyle.com/login">
+                        <input type="hidden" name="_token" value="5Nk4BubI8WyfYUr8zCl9AB5H6XhqWt4AJN6AhL1D">
+                        <div class="field">
+                            <label class="label">Email</label>
+                            <p class="control has-icons-left has-icons-right">
+                                <input class="input " type="email" name="email" placeholder="Email" value="" required autofocus>
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                            </p>
+                                                    </div>
+                        <div class="field">
+                            <label class="label">Password</label>
+                            <p class="control has-icons-left">
+                                <input class="input " type="password" name="password" placeholder="Password" required>
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                            </p>
+                                                    </div>
+                        <div class="field">
+                            <p class="control">
+                                <button class="button is-success">
+                                    Login
+                                </button>
+                            </a>
+                            </p>
+                        </div>
+                    </form>
                   </div>
-
-                </div>
-                <div class="search hidden" id="content_msg">
-                  <h1>Nachrichten</h1>
-                </div>
-                <div class="search hidden" id="content_flat">
-                  <h1>Aktive Wohnungen</h1>
-                  <div id="aktuelle Wohnungen">
-
-                  </div>
-
-                  <h1>Neue Wohnung erstellen</h1>
-
-                  <!-- Anzeigenname -->
-                  <div class="field">
-                    <label class="label">Name der Wohnung</label>
-                    <div class="control">
-                      <input class="input" type="text" placeholder="Schönes 20qm Zimmer" id="flt_title">
-                    </div>
-                    </div>
-                 
-                    <div class="columns">
-                      <div class="column">
-                        <div class="field">
-                          <label class="label">Miete</label>
-                          <div class="control">
-                            <input class="input" type="number" placeholder="Miete" id="flt_price">
-                          </div>
-                        </div>
+                    <!-- register -->
+                    <div class="search hidden" id="content_register">
+                        <h1>Account erstellen</h1>
+                        <form method="POST" name="register" action="https://bulmastyle.com/register">
+                            <input type="hidden" name="_token" value="5Nk4BubI8WyfYUr8zCl9AB5H6XhqWt4AJN6AhL1D">
+                            <div class="field">
+                                <label class="label">Name</label>
+                                <p class="control has-icons-left has-icons-right">
+                                    <input class="input " type="text" name="name" placeholder="Name" value="" required autofocus>
+                                    <span class="icon is-small is-left">
+                                        <i class="fa fa-user"></i>
+                                    </span>
+                                </p>
+                                                        </div>
+                            <div class="field">
+                                <label class="label">Email</label>
+                                <p class="control has-icons-left has-icons-right">
+                                    <input class="input " type="email" name="email" placeholder="Email" value="" required>
+                                    <span class="icon is-small is-left">
+                                        <i class="fa fa-envelope"></i>
+                                    </span>
+                                </p>
+                                                        </div>
+                            <div class="field">
+                                <label class="label">Password</label>
+                                <p class="control has-icons-left">
+                                    <input class="input " type="password" name="password" placeholder="Password" required>
+                                    <span class="icon is-small is-left">
+                                        <i class="fa fa-lock"></i>
+                                    </span>
+                                </p>
+                                                        </div>
+                            <div class="field">
+                                <label class="label">Password bestätigen</label>
+                                <p class="control has-icons-left">
+                                    <input class="input " type="password" name="password_confirmation" placeholder="bestätige Password" required>
+                                    <span class="icon is-small is-left">
+                                        <i class="fa fa-lock"></i>
+                                    </span>
+                                </p>
+                                                        </div>
+        
+        <div class="field">
+                                
+                            </div>
+                            <div class="field">
+                                <p class="control">
+                                    <a href="http://localhost:8081/app">
+                                    <button class="button is-success">
+                                        Erstellen
+                                    </button>
+                                    </a>
+                                </p>
+                            </div>
+                        </form>
                       </div>
-                      <div class="column">
-                        <div class="field">
-                          <label class="label">Quadratmeter Zimmer</label>
-                          <div class="control">
-                            <input class="input" type="number" placeholder="33 QM" id="rm_size">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="column">
-                        <div class="field">
-                          <label class="label">Quadratmeter Wohnung</label>
-                          <div class="control">
-                            <input class="input" type="number" placeholder="124QM" id="flt_size">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="column">
-                        <div class="field">
-                          <label class="label">Mitbewohner</label>
-                          <div class="control">
-                            <input class="input" type="number" placeholder="3 MB" id="flt_mates">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  <!-- Infos -->
                 
-                  <!-- Verfügbar ab -->
-                  <div class="field">
-                    <label class="label">Verfügbar:</label>
-                    <div class="control">
-                      <input class="datepicker" type="date" id="flt_date">
-                    </div>
-                  </div>
 
-                  <!-- Adresse -->
-                  <div class="field">
-                    <label class="label">Adresse</label>
-                    <div class="control">
-                      <input class="input" placeholder="Musterstraße 33" id="flt_adress"></input>
-                    </div>
-                  </div>
-                  
-                  <!-- Beschreibung -->
-                  <div class="field">
-                    <label class="label">Beschreibung</label>
-                    <div class="control">
-                      <textarea class="textarea" placeholder="Textarea" id="flt_desc"></textarea>
-                    </div>
-                  </div>
-                  
-                  <div class="field">
-                    <div class="control">
-                      <label class="checkbox">
-                        <input type="checkbox">
-                        Nutzungsbedingungen bestätigen</a>
-                      </label>
-                    </div>
-                  </div>
-                
-                  <div class="field is-grouped">
-                    <div class="control">
-                      <button class="button is-link" id="sendFlat">Abschicken</button>
-                    </div>
-                    <div class="control">
-                      <button class="button is-link is-light">Cancel</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="search hidden" id="content_settings">
-                  <h1>Einstellungen</h1>
-                </div>
-              </div>
-            </div>
-            
     </div>
+
+    <script>
+         document.getElementById("content_register").style = "visibility:none";
+            $('ol li').click(function(){
+      console.log($(this).attr("id"));
+      if($(this).attr("id") === "login"){
+          document.getElementById("content_login").style.display = "block";
+          document.getElementById("content_register").style.display = "none";
+
+
+      }else if($(this).attr("id") === "register"){
+        document.getElementById("content_login").style.display = "none";
+        document.getElementById("content_register").style.display = "block";
+
+      }
+     
+      $('li').removeClass("active");
+      $(this).addClass("active");
+  });
+    </script>
+</section>
+</div>
+
+
+            
+
+ 
+
+
+                  
+                  
+                  
+
+
+
+
+
+
+
   </section>
   </body>
 </html>

@@ -54,8 +54,8 @@ app.get('/createdb', (req,res) => {
         if (err) throw err;
         console.log(result);
         res.send('db created');
-    })
-})
+    });
+});
 
 //web234_db2.users
 /*
@@ -66,9 +66,7 @@ email varchar(45) not Null
 gender varchar(1) null
 photos blob null
 age int(11) null
-
 */
-
 app.get('/getUsers', (req,res) =>{
     db.query("SELECT * FROM web234_db2.users", (err,result) => {
         res.send(result);
@@ -79,26 +77,22 @@ app.get('/getWohnung', (req,res) =>{
         res.send(result);
     });
 });
-app.get('/addUser', (async function(req,res){
-    for(var i = 0; i < 30; i++){
-        var duude = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
-        let data = {
-            full_name: "giirl"+duude,
-            email: duude+"@.com",
-            gender: "w",
-            age: "24"
-        }
-        let sql = 'INSERT INTO web234_db2.users SET ?';
-        try{
-        await db.query(sql,data, (err,result) => {
-        console.log(result);
-        });
-        }catch(err){
-            console.err("transaction error");
-        }
+app.post('/addUser',(req,res) => {
+    var user = req.body;
+
+    let data = {
+        full_name: user.name,
+        email: user.mail,
+        gender: user.gender,
+        age: user.age
     }
+    let sql = 'INSERT INTO web234_db2.users SET ?';
+    db.query(sql,data, (err,result) => {
+        if (err) throw err;
+            console.log(result);
+    }); 
     res.send('users added');
-}));
+});
 //id . match_date. user_id, wohnung_id
 app.post('/addMatch', (req,res) => {
     var mtch = req.body;
@@ -147,9 +141,12 @@ app.use('/', express.static('app'));
 app.use(express.static('public'));
 
 //Default every except api to ->
-app.get('*', function(req,res){
+app.get('/', function(req,res){
     res.sendFile(path.join(__dirname + '/app/index.html'));
-})
+});
+app.get('/app',function(req,res){
+    res.sendFile(path.join(__dirname + '/app/app.html'));
+});
 
 module.exports =app;
 

@@ -64,6 +64,14 @@ function sendFlat(){
   }
   $.post('http://localhost:8081/addWohnung', data).done(function(response){
     console.log("Daten versendet");
+    document.getElementById("flt_title").value = "";
+    document.getElementById("flt_price").value = "";
+    document.getElementById("flt_date").value = "";
+    document.getElementById("flt_adress").value = "";
+    document.getElementById("rm_size").value = "";
+    document.getElementById("flt_size").value = "";
+    document.getElementById("flt_mates").value = "";
+    document.getElementById("flt_desc").value = "";
   });
 
   console.log("flat send");
