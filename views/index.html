@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wohnder</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="tndr.css" />
+  <link rel="stylesheet" type="text/css" href="wohnder.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  <script src="/js/login.js"></script>
+  <script src="/js/navigation.controller.js"></script>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container max-height">
+      <div class="columns">
+        <!-- NAVIGATION -->
+        <div class="column">
+          <div class="navigation">
+            <h1>Wohnder</h1>
+            <ol>
+              <li class="active" id="login">Anmelden</li>
+              <li id="register">Registrieren</li>
+              <li></li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="column is-four-fifths">
+          <div class="content">
+            <!-- login -->
+            <div class="search" id="content_login">
+              <h1>Anmelden</h1>
+              <p><b>Wohnder</b> benutzt zur Authentifizierung Nutzername und Email-Adresse. Bitte gebe diese Kombination
+                niemals an dritte weiter.</p>
+              <div class="field">
+                <label class="label">Username</label>
+                <input class="input " type="text" name="name" placeholder="Name" value="" required autofocus
+                  id="login_name">
+              </div>
+
+              <div class="field">
+                <label class="label">Email</label>
+                <input class="input " type="email" name="mail" placeholder="Email" required id="login_mail">
+              </div>
+
+              <div class="field">
+                <p class="control">
+                  <button class="button is-success" onclick=submitLogin();>
+                    Login
+                  </button>
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <!-- register -->
+            <div class="search hidden" id="content_register">
+              <h1>Account erstellen</h1>
+              <div class="field">
+                <label class="label">Username</label>
+                <input class="input " type="text" name="name" placeholder="Name" value="" required autofocus
+                  id="usr_name">
+              </div>
+
+              <div class="field">
+                <label class="label">Email</label>
+                <input class="input " type="email" name="email" placeholder="Email" value="" required id="usr_email">
+              </div>
+
+              <div class="field">
+                <label class="label">Email bestätigen</label>
+                <input class="input " type="password" name="password_confirmation" placeholder="bestätige Password"
+                  required id="usr_email2">
+              </div>
+
+              <div class="field">
+
+              </div>
+              <div class="field">
+                <p class="control">
+                  <a href="http://localhost:8081/app">
+                    <button class="button is-success" onclick=signUp();>
+                      Erstellen
+                    </button>
+                  </a>
+                </p>
+              </div>
+              </form>
+            </div>
+
+
+          </div>
+
+  </section>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </section>
+</body>
+
+</html>

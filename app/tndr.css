@@ -59,6 +59,25 @@
     background-color:aqua;
     transition:all 1.2s ease-in-out;
   }
+  .box ol{
+    height:4.5em;
+  }
+  .box li{
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    margin:0.2em 1.5%;
+    border:1px solid rgba(150,150,150,0.7);
+    float:left;
+    width:30%;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding:1.2em;
+  }
+  .box li:hover{
+    background-color:aqua;
+    transition:all 1.2s ease-in-out;
+  }
   .rotate-left {
     transform: rotate(30deg) scale(0.8);
     transition: 1s;
