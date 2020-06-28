@@ -88,7 +88,7 @@ $(document).ready(function () {
     ).done(function (json) {
       console.log("cards", json);
       for (var i = 0; i < json.length; i++) {
-        var backgroundimg = "https://1.bp.blogspot.com/_qEbjiFbQWGM/TCBVlN3mkYI/AAAAAAAADCM/7CjYqUHwbgY/s1600/workshop_modell_0126.jpg"
+        var backgroundimg = "https://i.pinimg.com/originals/fe/3a/85/fe3a850efb10dc06ebc36158e5bf185b.jpg"
         var outerBody = document.createElement('div');
         outerBody.id = parseInt(json[i].id);
         var avatar = document.createElement('div');
