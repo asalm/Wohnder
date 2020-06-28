@@ -37,9 +37,12 @@ function signUp(){
             mail: email,
         };
         $.post('http://localhost:8081/addUser', data).done(function(response){
+            console.log(response);
             var userid = response.insertId;
-
+            var username = response[0].full_name;
             sessionStorage.setItem('userid',userid);
+            sessionStorage.setItem("displayname",username);
+
             setTimeout(function(){window.location.pathname = "/app";},800);
         });
     }

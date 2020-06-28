@@ -36,47 +36,50 @@ $(document).ready(function () {
         console.log("flats", json);
         json = JSON.parse(json);
         sessionStorage.setItem("flat_count", json.length);
-        for (var i = 0; i < json.length; i++) {
-          var outerBody = document.createElement('div');
-          console.log("FLAT ID",json[i].id);
-          outerBody.id = parseInt(json[i].id);
-          outerBody.classList.add('box');
-          var textBox = document.createElement('p');
-          var title = document.createElement('strong');
-          title.innerHTML = json[i].title;
-          var infos = document.createElement('small');
-          var desc = document.createElement('p');
-          desc.innerHTML = json[i].description;
-          infos.innerHTML = json[i].available;
-          textBox.appendChild(title);
-          textBox.appendChild(infos);
-          outerBody.appendChild(textBox);
-
-          outerBody.append(desc);
-          var ol = document.createElement('ol');
-          ol.classList.add('info');
-          var li1 = document.createElement('li');
-          var li2 = document.createElement('li');
-          var li3 = document.createElement('li');
-          li1.innerHTML = json[i].rent + "€";
-          li2.innerHTML = json[i].roomsize + "qm²";
-          li3.innerHTML = json[i].mates + " MB";
-          ol.appendChild(li1);
-          ol.appendChild(li2);
-          ol.appendChild(li3);
-          outerBody.appendChild(ol);
-
-          var delbutton = document.createElement("button");
-          delbutton.classList.add("button");
-          delbutton.classList.add("delbutton");
-          delbutton.innerHTML = "löschen";
-          outerBody.id = parseInt(json[i].id);
-
-          outerBody.appendChild(delbutton);
-          document.getElementById("flat_container").appendChild(outerBody);
+        if(json.length > 1){
+          for (var i = 0; i < json.length; i++) {
+            var outerBody = document.createElement('div');
+            console.log("FLAT ID",json[i].id);
+            outerBody.id = parseInt(json[i].id);
+            outerBody.classList.add('box');
+            var textBox = document.createElement('p');
+            var title = document.createElement('strong');
+            title.innerHTML = json[i].title;
+            var infos = document.createElement('small');
+            var desc = document.createElement('p');
+            desc.innerHTML = json[i].description;
+            infos.innerHTML = json[i].available;
+            textBox.appendChild(title);
+            textBox.appendChild(infos);
+            outerBody.appendChild(textBox);
+  
+            outerBody.append(desc);
+            var ol = document.createElement('ol');
+            ol.classList.add('info');
+            var li1 = document.createElement('li');
+            var li2 = document.createElement('li');
+            var li3 = document.createElement('li');
+            li1.innerHTML = json[i].rent + "€";
+            li2.innerHTML = json[i].roomsize + "qm²";
+            li3.innerHTML = json[i].mates + " MB";
+            ol.appendChild(li1);
+            ol.appendChild(li2);
+            ol.appendChild(li3);
+            outerBody.appendChild(ol);
+  
+            var delbutton = document.createElement("button");
+            delbutton.classList.add("button");
+            delbutton.classList.add("delbutton");
+            delbutton.innerHTML = "löschen";
+            outerBody.id = parseInt(json[i].id);
+  
+            outerBody.appendChild(delbutton);
+            document.getElementById("flat_container").appendChild(outerBody);
+          }
+          addMatches(json);
+          //updateBadges();
         }
-        addMatches(json);
-        //updateBadges();
+        
       })
     );
   }
@@ -87,6 +90,7 @@ $(document).ready(function () {
       jQuery.getJSON("http://localhost:8081/getWohnung")
     ).done(function (json) {
       console.log("cards", json);
+
       for (var i = 0; i < json.length; i++) {
         var backgroundimg = "https://i.pinimg.com/originals/fe/3a/85/fe3a850efb10dc06ebc36158e5bf185b.jpg"
         var outerBody = document.createElement('div');
@@ -121,6 +125,7 @@ $(document).ready(function () {
         document.getElementById('tinder').appendChild(outerBody);
         console.log("kid added");
       }
+      setUpEventListeners();
     });
   }
 
@@ -145,6 +150,7 @@ $(document).ready(function () {
             h2.classList.add(title);
             sorry.innerHTML += "keine Matches";
             container.appendChild(sorry);
+            setUpEventListeners();
           } else {
             console.log("matches", json);
             var flatc;
@@ -163,9 +169,10 @@ $(document).ready(function () {
             });
             container.appendChild(columns);
           }
+          console.log("Event Listeners attached");
+          setUpEventListeners();
         }));
-        console.log("Event Listeners attached");
-        setUpEventListeners();
+
     }
   }
 
